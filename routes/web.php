@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('neraca-surga', 'App\Http\Controllers\NeracaSurga\ViewController@index');
+Route::get('/', 'App\Http\Controllers\NeracaSurga\ViewController@index');
+Route::post('/ajax-hitung-neraca-surga', 'App\Http\Controllers\NeracaSurga\PostController@ajaxHitungNeraca');

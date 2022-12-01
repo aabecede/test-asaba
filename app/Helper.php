@@ -9,3 +9,19 @@ if (!function_exists('explodeImplode')) {
         return $implode;
     }
 }
+
+if (!function_exists('pre')) {
+    function pre(...$array)
+    {
+        echo "<pre>";
+        print_r($array);
+        echo "</pre>";
+    }
+}
+
+if (!function_exists('customRound')) {
+    function customRound($nominal, $round = 2)
+    {
+        return round($nominal, $round);
+    }
+}
