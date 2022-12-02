@@ -9,8 +9,9 @@
             <i class="fa fa-angle-right"></i> ${trCount}
         </td>
         <td colspan="3">
-            <select class="form-control js-select2-tags select-nama" required name="nama_orang[${trCount}]" data-placeholder="Masukkan Nama">
-            </select>
+            {{-- <select class="form-control js-select2-tags select-nama" required name="nama_orang[${trCount}]" data-placeholder="Masukkan Nama">
+            </select> --}}
+            <input type="text" class="form-control" required name="nama_orang[${trCount}]" placeholder="Masukkan Nama">
         </td>
         <td class="text-right btn-remove-show">
         </td>
@@ -29,13 +30,13 @@
 
         </td>
         <td>
-            <input type="text" class="form-control" required name="deskripsi[${trCount}][0]">
+            <input type="text" class="form-control" placeholder="Keterangan Pembelian" required name="deskripsi[${trCount}][0]">
         </td>
         <td>
-            <input type="number" class="form-control cls-jumlah" required name="jumlah[${trCount}][0]">
+            <input type="number" class="form-control cls-jumlah" placeholder="10000" min="1" required name="jumlah[${trCount}][0]">
         </td>
         <td class="text-center">
-            <input type="number" class="form-control cls-harga" required name="harga[${trCount}][0]">
+            <input type="number" class="form-control cls-harga" placeholder="10000" min="1" required name="harga[${trCount}][0]">
         </td>
         <td>
             <button class="btn btn-info tambah-detail-tarif" type="button" data-id="${trCount}">
