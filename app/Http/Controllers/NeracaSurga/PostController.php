@@ -38,38 +38,45 @@ class PostController extends Controller
                     // ];
                     $arr->push([
                         'deskripsi' => $item,
-                        'jumlah'    => $jumlah_current,
-                        'harga'     => $harga_current,
-                        'total'     => $total_current
+                        'jumlah'    => (float)$jumlah_current,
+                        'harga'     => (float)$harga_current,
+                        'total'     => (float)$total_current
                     ]);
                 }
                 $total_non_diskon += $subtotal;
                 $arr_map[] = [
                     'name'     => $value,
                     'pesanan'  => $arr,
-                    'subtotal' => $subtotal,
-                    'ongkir'   => $ongkir_satuan,
+                    'subtotal' => (float)$subtotal,
+                    'ongkir'   => (float)$ongkir_satuan,
                     // 'diskon'   => $diskon_satuan,
                 ];
 
             }
             // dd($arr_map);
             //hitung diskonnya
-            $diskon_satuan = customRound(1 - ($diskon/$total_non_diskon));
+            // dd((float)$diskon, $total_non_diskon, ((float)$diskon / $total_non_diskon));
+            $diskon_satuan = (1 - ($diskon/$total_non_diskon));
+            $diskon_satuan = $diskon_satuan == 1 ? 0 : $diskon_satuan;
             $total_akhir = 0;
             $map = collect([]);
             foreach ($arr_map as $key => $value) {
 
                 $subtotal_diskon = $value['subtotal'] * $diskon_satuan;
+                $diskon = $value['subtotal'] - $subtotal_diskon;
                 $total = $subtotal_diskon + $value['ongkir'];
+                $total = $total != 0 ? $total : $value['subtotal'];
                 $total_akhir += $total;
-                $value['subtotal_diskon'] = $subtotal_diskon;
-                $value['total'] = $total;
+
+                $value['diskon'] = (float)$diskon;
+                $value['subtotal_diskon'] = (float)$subtotal_diskon;
+                $value['total'] = (float)$total;
                 $map->push($value);
             }
 
             $result = [
-                'data' => $map
+                'data' => $map,
+                'total' => $total_akhir
             ];
             return $this->successJson(
                 $result

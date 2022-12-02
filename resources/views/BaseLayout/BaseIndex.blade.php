@@ -98,12 +98,13 @@
             {
                 type,
                 title,
-                text,url = 0
+                text,
+                url = 0
             }
         )
         {
-            return Swal({
-                type: type,
+            return Swal.fire({
+                icon: type,
                 title: title,
                 html: text,
                 timer:3000,
@@ -119,8 +120,8 @@
             });
         }
         function swalLoading(message = `Sedang memproses data ...`){
-            Swal({
-                    type : 'warning',
+            Swal.fire({
+                    icon : 'warning',
                     title : 'Harap menunggu',
                     html : message,
                     showCancelButton: false,

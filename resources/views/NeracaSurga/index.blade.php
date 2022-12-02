@@ -46,49 +46,27 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="contentnya">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label>Pelanggan</label>
-                                    <input type="text" class="form-control" name="pelanggan[]">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label>Makanan</label>
-                                    <input type="text" class="form-control" name="makanan[]">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label>Jumlah</label>
-                                    <input type="text" class="form-control" name="jumlah[]">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label>Harga Satuan</label>
-                                    <input type="text" class="form-control" name="jumlah[]">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label>Total</label>
-                                    <input type="text" class="form-control" name="jumlah[]">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="form-group">
-                                <label> Diskon Rp</label>
-                                <input type="number" class="form-control">
-                            </div>
-                        </div>
-                    </div> --}}
                 </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="HasilNecaraSurga" tabindex="-1" role="dialog" aria-labelledby="HasilNecaraSurgaTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Hasil Neraca Surga</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
             </div>
         </div>
     </div>
