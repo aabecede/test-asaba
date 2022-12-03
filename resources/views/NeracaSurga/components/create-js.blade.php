@@ -2,6 +2,7 @@
 	var trCount = 0;
 	var tbody = $('#harga-tbody');
 	var editor = new SimpleTableCellEditor("hargaTable");
+    let data_json = {}
 
 	// $(document).ready(function(){
 	// 	// setEditable();
@@ -42,7 +43,7 @@
                     if (response.code == 200) {
                         $('.modal-body').html('Sedang Memproses Data...')
                         $("#HasilNecaraSurga").modal('toggle');
-
+                        data_json = response
                         let html = htmlSetHasilNeraca({
                             response
                         })
@@ -86,10 +87,6 @@
 		});
 	}
 
-</script>
-
-{{-- JS coba create --}}
-<script>
 	$(document).ready(function() {
 		// tambah_detail_tarif()
 		$('#tambahRecord').trigger('click')
@@ -210,6 +207,29 @@
         return html;
     }
 
+    $(document).on('click', '.btn-save', function(){
+        $.ajax({
+            type: "POST",
+            url: `${BASE_URL}/ajax-simpan-hostori`,
+            data: data_json,
+            dataType: "json",
+            success: function(response) {
+
+                $(this_button).attr('disabled', false)
+                if (response.code == 200) {
+                    callSwal({
+                        type: 'success',
+                        title: 'Berhasil',
+                        text: response.message
+                    })
+                }
+            },
+            error: function(response) {
+                return swalTerjadiKesalahanServer()
+            }
+        });
+    })
+
     // function reindexNumDetail(id) {
 	// 	var cls = '.index-num-detail-' + id
 	// 	$(cls).each(function(key, item) {
@@ -218,4 +238,3 @@
 	// }
 
 </script>
-{{-- end JS coba create --}}

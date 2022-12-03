@@ -14,9 +14,10 @@
         if (count($breadcumb) > 4) {
             array_pop($breadcumb);
         }
+        // dd($breadcumb);
         $first_breadcumb = explodeImplode($breadcumb[0]);
     @endphp
-    <title> {{ucwords($first_breadcumb ?? 'Neraca Surga')}}</title>
+    <title> {{ucwords($first_breadcumb == "" ? 'Neraca Surga' : $first_breadcumb)}}</title>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     @stack('css')
     <style>
